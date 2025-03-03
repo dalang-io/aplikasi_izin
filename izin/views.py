@@ -2,9 +2,10 @@ import requests
 from django.shortcuts import render, redirect
 import os 
 from datetime import datetime  
+from izin_project import settings
 
 # URL Pocketbase
-POCKETBASE_URL = "http://127.0.0.1:8090/api/collections/guestsbook/records"
+POCKETBASE_URL = f"{settings.POCKETBASE_URL}/api/collections/guestsbook/records"
 
 # Halaman utama form izin
 def index(request):
@@ -67,7 +68,7 @@ def submit_izin(request):
         # Authorization token (ambil dari environment variable)
         token = os.getenv('POCKETBASE_TOKEN', 'default_token')
         headers = {
-            "authorization": f"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2xsZWN0aW9uSWQiOiJwYmNfMzE0MjYzNTgyMyIsImV4cCI6MTgwNDA0ODM5NSwiaWQiOiJ1dWczNTJmaTZlazY0ZTciLCJyZWZyZXNoYWJsZSI6ZmFsc2UsInR5cGUiOiJhdXRoIn0._20YxVc2uaGge201wm0TXKvWUhJftw9SLrq4utJWrw8"
+            "authorization": f"Bearer {settings.POCKETBASE_SECRET_KEY}"
         }
 
         try:

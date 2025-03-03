@@ -79,12 +79,6 @@ wheels = [
 ]
 
 [[package]]
-name = "environ"
-version = "1.0"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/29/e4/6f448fcce1649a1f0f265e20bd88b7c8ff36e265657604b920240045928b/environ-1.0.tar.gz", hash = "sha256:4df7f1dfeb7d1c988d2e19a8bd5d547a526e0400aeb35adf732032472f35dcb0", size = 2628 }
-
-[[package]]
 name = "idna"
 version = "3.10"
 source = { registry = "https://pypi.org/simple" }
@@ -100,7 +94,6 @@ source = { virtual = "." }
 dependencies = [
     { name = "django" },
     { name = "django-environ" },
-    { name = "environ" },
     { name = "requests" },
 ]
 
@@ -108,7 +101,6 @@ dependencies = [
 requires-dist = [
     { name = "django", specifier = ">=5.1.6" },
     { name = "django-environ", specifier = ">=0.12.0" },
-    { name = "environ", specifier = ">=1.0" },
     { name = "requests", specifier = ">=2.32.3" },
 ]
 
