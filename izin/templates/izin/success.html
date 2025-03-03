@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success - Sistem Izin Sekolah Islam</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Sistem Form Izin Sekolah Islam</h1>
+        </header>
+
+        <div class="islamic-decoration">
+            "Sesungguhnya bersama kesulitan ada kemudahan" - Al-Qur'an (94:6)
+        </div>
+
+        <!-- Success Message -->
+        <div class="success-container">
+            <h2>Data Berhasil Dikirim</h2>
+            <p>Terima kasih, data izin Anda telah dikirim dengan sukses. Semoga Allah memudahkan langkah Anda.</p>
+            <a href="{% url 'index' %}" class="button">Kembali ke Form</a>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2025 Sistem Izin Sekolah Islam. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

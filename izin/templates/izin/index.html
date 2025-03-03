@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Izin Sekolah Islam</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Selamat Datang di Sistem Form Izin Sekolah Islam</h1>
+        </header>
+
+        <div class="islamic-decoration">
+            "Pendidikan adalah senjata paling ampuh untuk mengubah dunia" - Al-Qur'an
+        </div>
+
+        <!-- Main Form -->
+        <main>
+            <h3>Form Izin Keluar/Keterlambatan</h3>
+
+            <form id="izinForm" method="POST" action="{% url 'submit_izin' %}">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label for="nama">Nama Murid:</label>
+                    <input type="text" id="nama" name="nama" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="nisn">NISN:</label>
+                    <input type="text" id="nisn" name="nisn" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="kelas">Kelas:</label>
+                    <input type="text" id="kelas" name="kelas" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Pilih Kategori:</label>
+                    <select id="category" name="category" required>
+                        <option value="">--Pilih Kategori--</option>
+                        <option value="keterlambatan">Keterlambatan</option>
+                        <option value="izin_keluar">Izin Keluar</option>
+                    </select>
+                </div>
+
+                <!-- Field tanggal -->
+                <div class="form-group" id="date-field">
+                    <label for="date">Tanggal:</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+
+                <!-- Form details -->
+                <div id="form-details">
+                    <!-- Field tambahan untuk izin keluar -->
+                    <div id="time-fields">
+                        <div class="form-group">
+                            <label for="start_time">Dari Jam:</label>
+                            <input type="time" id="start_time" name="start_time" step="60">
+                        </div>
+                        <div class="form-group">
+                            <label for="end_time">Sampai Jam:</label>
+                            <input type="time" id="end_time" name="end_time" step="60">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reason">Alasan:</label>
+                        <textarea id="reason" name="reason" required></textarea>
+                    </div>
+                </div>
+
+                <button type="submit">Kirim Izin</button>
+            </form>
+
+            {% if error %}
+                <p class="error">{{ error }}</p>
+            {% endif %}
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>© 2025 Sistem Izin Sekolah Islam. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Ambil elemen yang diperlukan
+            const kategoriSelect = document.getElementById("category");
+            const timeFields = document.getElementById("time-fields");
+            const formDetails = document.getElementById("form-details");
+            const kalender = document.getElementById("date-field");
+
+            // Sembunyikan timeFields dan formDetails saat halaman pertama kali dimuat
+            formDetails.style.display = "none";
+            kalender.style.display = "none";
+            timeFields.style.display = "none";
+
+            // Event listener untuk kategori
+            kategoriSelect.addEventListener("change", function() {
+                const selectedValue = kategoriSelect.value;
+
+                if (selectedValue === "keterlambatan") {
+                    formDetails.style.display = "block";  
+                    kalender.style.display = "block";     
+                    timeFields.style.display = "none";   
+                } else if (selectedValue === "izin_keluar") {
+                    formDetails.style.display = "block";
+                    kalender.style.display = "block";     
+                    timeFields.style.display = "block";  
+                } else {
+                    formDetails.style.display = "none";
+                    kalender.style.display = "none";
+                    timeFields.style.display = "none";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
