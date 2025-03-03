@@ -67,7 +67,7 @@ def submit_izin(request):
         # Authorization token (ambil dari environment variable)
         token = os.getenv('POCKETBASE_TOKEN', 'default_token')
         headers = {
-            "authorization": f"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2xsZWN0aW9uSWQiOiJwYmNfMzE0MjYzNTgyMyIsImV4cCI6MTgwNDA0NzQ1MywiaWQiOiJ1dWczNTJmaTZlazY0ZTciLCJyZWZyZXNoYWJsZSI6ZmFsc2UsInR5cGUiOiJhdXRoIn0.jAh-ypZx4q28V-jVdlQoO6BICJcQJwIxp1ZDm55dIS4"
+            "authorization": f"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjb2xsZWN0aW9uSWQiOiJwYmNfMzE0MjYzNTgyMyIsImV4cCI6MTgwNDA0ODM5NSwiaWQiOiJ1dWczNTJmaTZlazY0ZTciLCJyZWZyZXNoYWJsZSI6ZmFsc2UsInR5cGUiOiJhdXRoIn0._20YxVc2uaGge201wm0TXKvWUhJftw9SLrq4utJWrw8"
         }
 
         try:

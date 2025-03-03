@@ -1,0 +1,19 @@
+services:
+  murid-app:
+    container_name: murid-app
+    image: sekolah:latest
+    environment:
+      DEBUG: ${DEBUG}
+      SECRET_KEY: ${SECRET_KEY}
+      ALLOWED_HOST: ${ALLOWED_HOST}
+      CSRF_TRUSTED_ORIGINS: ${CSRF_TRUSTED_ORIGINS}
+      POCKETBASE_SECRET_KEY: ${SECRET_KEY}
+      POCKETBASE_URL: ${POCKETBASE_URL}
+    ports:
+      - "8000:8000"
+    networks:
+      - shared-network
+
+networks:
+  shared-network:
+    external: true
