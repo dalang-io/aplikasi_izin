@@ -1,6 +1,6 @@
 services:
   murid-app:
-    container_name: murid-app
+    container_name: aplikasi-izin
     image: mashanz/aplikasi-izin
     network_mode: "host"
     environment:
