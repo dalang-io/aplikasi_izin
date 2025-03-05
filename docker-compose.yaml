@@ -1,8 +1,7 @@
 services:
   murid-app:
     container_name: murid-app
-    #image: sekolah:latest
-    build: .
+    image: mashanz/aplikasi-izin
     network_mode: "host"
     environment:
       DEBUG: ${DEBUG}
@@ -11,5 +10,3 @@ services:
       CSRF_TRUSTED_ORIGINS: ${CSRF_TRUSTED_ORIGINS}
       POCKETBASE_SECRET_KEY: ${SECRET_KEY}
       POCKETBASE_URL: ${POCKETBASE_URL}
-    ports:
-      - "8000:8000"
