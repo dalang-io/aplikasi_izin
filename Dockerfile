@@ -10,4 +10,4 @@ COPY . .
 RUN uv run manage.py collectstatic --noinput
 FROM static AS runner
 EXPOSE  8000
-CMD ["uv", "run", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["uv", "run", "manage.py", "runserver", "0.0.0.0:8001"]
