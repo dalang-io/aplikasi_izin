@@ -1,15 +1,15 @@
 services:
   murid-app:
     container_name: murid-app
-    image: sekolah:latest
+    #image: sekolah:latest
+    build: .
     network_mode: "host"
     environment:
       DEBUG: ${DEBUG}
       SECRET_KEY: ${SECRET_KEY}
-      ALLOWED_HOST: ${ALLOWED_HOST}
+      ALLOWED_HOSTS: ${ALLOWED_HOSTS}
       CSRF_TRUSTED_ORIGINS: ${CSRF_TRUSTED_ORIGINS}
       POCKETBASE_SECRET_KEY: ${SECRET_KEY}
       POCKETBASE_URL: ${POCKETBASE_URL}
     ports:
       - "8000:8000"
-    
